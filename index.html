@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dennis Nickens â Spiritual Romeo. Relationship consulting that transforms how you connect, love, and lead." />
+  <title>Dennis Nickens | Spiritual Romeo â Relationship Transformation</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Core styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Module styles -->
+  <link rel="stylesheet" href="modules.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body>
+
+  <!-- M1: BACKGROUND PARTICLE CANVAS â fixed layer behind all sections -->
+  <canvas id="bgParticle" aria-hidden="true"></canvas>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       NAV
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Dennis Nickens â Spiritual Romeo">
+        <img src="sr-logo.png" alt="SR Crown Logo" class="nav-logo-img" width="52" height="52">
+        <span class="nav-logo-text">
+          <span class="nav-logo-name">Dennis Nickens</span>
+          <span class="nav-logo-subtitle">AKA SPIRITUAL ROMEO</span>
+        </span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#story"        class="nav-link">My Story</a></li>
+        <li><a href="#services"     class="nav-link">Work With Me</a></li>
+        <li><a href="#testimonials" class="nav-link">Results</a></li>
+        <li><a href="#booking"      class="nav-link nav-link--cta">Book Now</a></li>
+      </ul>
+
+      <button class="nav-menu-btn" id="menuBtn" aria-expanded="false" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="#story"        class="mobile-link">My Story</a>
+      <a href="#services"     class="mobile-link">Work With Me</a>
+      <a href="#testimonials" class="mobile-link">Results</a>
+      <a href="#booking"      class="mobile-link mobile-link--cta">Book a Session</a>
+    </div>
+  </nav>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       HERO â SCROLL TRACK + CANVAS ENGINE
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <section id="hero" class="hero-scroll-section" aria-label="Hero">
+    <div class="hero-scroll-track">
+      <div class="hero-sticky">
+
+        <!-- Canvas owned by hero-animation.js -->
+        <canvas id="particleCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+        <!-- Video slot (uncomment when video file is ready) -->
+        <!--
+        <div class="hero-video-wrap">
+          <video id="heroVideo" muted playsinline preload="auto" aria-hidden="true"></video>
+        </div>
+        -->
+
+        <!-- Mobile fallback gradient -->
+        <div class="hero-fallback" id="heroFallback" aria-hidden="true"></div>
+
+        <!-- Hero content -->
+        <div class="hero-content">
+          <div class="hero-eyebrow reveal-fade">Dennis Nickens &bull; Spiritual Romeo</div>
+
+          <!-- M2: Kinetic headline -->
+          <h1 class="hero-headline">
+            <span data-kinetic class="kinetic-block">Stop</span>
+            <span data-kinetic class="kinetic-block">Guessing.</span>
+            <br class="hero-br" />
+            <span data-kinetic data-kinetic-grad class="kinetic-block">Start</span>
+            <span data-kinetic data-kinetic-grad class="kinetic-block">Connecting.</span>
+          </h1>
+
+          <p class="hero-sub reveal-fade" style="transition-delay:.4s">
+            Real transformation. Real results. Relationships that actually work.
+          </p>
+
+          <div class="hero-actions reveal-fade" style="transition-delay:.65s">
+            <a href="#booking" class="btn btn--primary btn--lg">
+              Book Your Session <span class="btn-arrow">&#8594;</span>
+            </a>
+            <a href="#story" class="btn btn--ghost btn--lg">My Journey</a>
+          </div>
+
+          <!-- Social proof strip -->
+          <div class="hero-proof reveal-fade" style="transition-delay:.85s">
+            <div class="proof-item">
+              <span class="proof-num" data-count="500" data-suffix="+">0+</span>
+              <span class="proof-label">Lives Transformed</span>
+            </div>
+            <div class="proof-divider" aria-hidden="true"></div>
+            <div class="proof-item">
+              <span class="proof-num" data-count="12" data-suffix=" yrs">0 yrs</span>
+              <span class="proof-label">Coaching Experience</span>
+            </div>
+            <div class="proof-divider" aria-hidden="true"></div>
+            <div class="proof-item">
+              <span class="proof-num" data-count="97" data-suffix="%">0%</span>
+              <span class="proof-label">Client Satisfaction</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="hero-scroll-hint" aria-hidden="true">
+          <span class="scroll-hint-text">Scroll</span>
+          <div class="scroll-hint-line"></div>
+        </div>
+
+      </div><!-- /.hero-sticky -->
+    </div><!-- /.hero-scroll-track -->
+  </section>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       KINETIC BANNER â M2 full statement
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <section class="kinetic-banner" aria-label="Transform Your Relationships">
+    <div class="container">
+      <p class="kinetic-statement">
+        <span data-kinetic class="kinetic-block">Transform</span>
+        <span data-kinetic class="kinetic-block">Your</span>
+        <span data-kinetic data-kinetic-grad class="kinetic-block">Relationships.</span>
+        &nbsp;
+        <span data-kinetic class="kinetic-block">Transform</span>
+        <span data-kinetic data-kinetic-grad class="kinetic-block">Your&nbsp;Life.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       STORY â M3 SCROLL TIMELINE
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <section id="story" class="story-section section-pad" aria-label="Dennis's Story">
+    <div class="container">
+
+      <div class="section-label reveal-fade">The Journey</div>
+      <h2 class="section-title reveal-fade">
+        From Heartbreak<br/>
+        <span class="text-gradient">to Breakthrough</span>
+      </h2>
+      <p class="section-subtitle reveal-fade">
+        I didn&#39;t find my purpose despite pain &mdash; I found it because of it.
+      </p>
+
+      <div class="story-timeline">
+        <!-- Vertical progress line -->
+        <div class="story-line" aria-hidden="true">
+          <div class="story-line-fill"></div>
+        </div>
+
+        <div class="story-step" data-step="01">
+          <div class="story-step-dot" aria-hidden="true"></div>
+          <div class="story-step-content">
+            <span class="story-step-year">The Fall</span>
+            <h3 class="story-step-title">Rock Bottom Has a Foundation</h3>
+            <p class="story-step-body">
+              I&#39;ve been where you are &mdash; the confusion, the heartbreak, the feeling that real connection is somehow beyond your reach. Multiple failed relationships. Loneliness even in a room full of people. I thought something was fundamentally broken in me.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-step" data-step="02">
+          <div class="story-step-dot" aria-hidden="true"></div>
+          <div class="story-step-content">
+            <span class="story-step-year">The Work</span>
+            <h3 class="story-step-title">Going Deep to Go Far</h3>
+            <p class="story-step-body">
+              I invested years studying human psychology, attachment theory, masculine &amp; feminine energy dynamics, and spiritual principles of connection. Not theory &mdash; lived experience combined with rigorous study of what actually moves people to change.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-step" data-step="03">
+          <div class="story-step-dot" aria-hidden="true"></div>
+          <div class="story-step-content">
+            <span class="story-step-year">The Turn</span>
+            <h3 class="story-step-title">Becoming Spiritual Romeo</h3>
+            <p class="story-step-body">
+              The name emerged organically &mdash; the union of deep spiritual awareness with passionate, intentional love. Not the Hollywood fantasy, but the real, sometimes messy, always transformative work of truly connecting with another human being.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-step" data-step="04">
+          <div class="story-step-dot" aria-hidden="true"></div>
+          <div class="story-step-content">
+            <span class="story-step-year">The Mission</span>
+            <h3 class="story-step-title">500+ Relationships Transformed</h3>
+            <p class="story-step-body">
+              Today I work with men and couples who are done with surface-level connection and ready to build something real. Whether you&#39;re single and breaking patterns, or partnered and drifting apart &mdash; my work meets you exactly where you are.
+            </p>
+          </div>
+        </div>
+      </div><!-- /.story-timeline -->
+
+      <div class="story-cta reveal-fade">
+        <a href="#booking" class="btn btn--primary">Start Your Transformation</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       STATS STRIP
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="stats-strip" aria-label="Impact numbers">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal-fade">
+          <span class="stat-num" data-count="500" data-suffix="+">0+</span>
+          <span class="stat-label">Clients Transformed</span>
+        </div>
+        <div class="stat-item reveal-fade">
+          <span class="stat-num" data-count="12" data-suffix=" yrs">0 yrs</span>
+          <span class="stat-label">Coaching Experience</span>
+        </div>
+        <div class="stat-item reveal-fade">
+          <span class="stat-num" data-count="97" data-suffix="%">0%</span>
+          <span class="stat-label">Satisfaction Rate</span>
+        </div>
+        <div class="stat-item reveal-fade">
+          <span class="stat-num" data-count="3" data-suffix=" books">0 books</span>
+          <span class="stat-label">Published Works</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       SERVICES â M4 ACCORDION
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <section id="services" class="services-section section-pad" aria-label="Services">
+    <div class="container">
+
+      <div class="section-label reveal-fade">Work With Me</div>
+      <h2 class="section-title reveal-fade">
+        Choose Your<br/>
+        <span class="text-gradient">Path Forward</span>
+      </h2>
+      <p class="section-subtitle reveal-fade">
+        Every journey is different. Every offering is designed to meet you exactly where you are.
+      </p>
+
+      <div class="services-accordion" role="list">
+
+        <!-- âââ Service 1 âââ -->
+        <div class="accord-item" role="listitem">
+          <button class="accord-header" aria-expanded="true">
+            <div class="accord-header-left">
+              <span class="accord-number">01</span>
+              <div>
+                <div class="accord-title">Single Breakthrough Session</div>
+                <div class="accord-tagline">Clarity in one powerful conversation</div>
+              </div>
+            </div>
+            <div class="accord-header-right">
+              <span class="accord-price">$197</span>
+              <span class="accord-icon" aria-hidden="true">+</span>
+            </div>
+          </button>
+          <div class="accord-body">
+            <div class="accord-body-inner">
+              <p class="accord-desc">
+                Sometimes you need a mirror, not a map. This 90-minute intensive gives you exactly that &mdash; a clear-eyed look at what&#39;s really happening in your relationships and a concrete action plan for what to do next.
+              </p>
+              <ul class="accord-list">
+                <li>90-minute deep-dive session via Zoom</li>
+                <li>Pattern recognition &amp; root cause analysis</li>
+                <li>Personalized action framework</li>
+                <li>24-hour follow-up voice memo</li>
+                <li>Full session recording included</li>
+              </ul>
+              <div class="accord-ideal">
+                <span class="accord-ideal-label">Ideal for:</span>
+                Singles at a crossroads &nbsp;&bull;&nbsp; Couples in conflict &nbsp;&bull;&nbsp; Anyone stuck in a pattern
+              </div>
+              <a href="#booking" class="btn btn--primary accord-btn">Book This Session</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- âââ Service 2 âââ -->
+        <div class="accord-item" role="listitem">
+          <button class="accord-header" aria-expanded="false">
+            <div class="accord-header-left">
+              <span class="accord-number">02</span>
+              <div>
+                <div class="accord-title">3-Month Transformation Program</div>
+                <div class="accord-tagline">Deep rewiring. Lasting change.</div>
+              </div>
+            </div>
+            <div class="accord-header-right">
+              <span class="accord-price">$1,497</span>
+              <span class="accord-icon" aria-hidden="true">+</span>
+            </div>
+          </button>
+          <div class="accord-body">
+            <div class="accord-body-inner">
+              <div class="accord-badge">Most Popular</div>
+              <p class="accord-desc">
+                Real patterns take time to build &mdash; and real change takes intentional, consistent work. This program walks you through a proven framework for rewiring how you show up in every relationship in your life.
+              </p>
+              <ul class="accord-list">
+                <li>12 weekly 60-minute coaching sessions</li>
+                <li>Comprehensive relationship assessment</li>
+                <li>Custom breakthrough roadmap</li>
+                <li>Unlimited messaging support between sessions</li>
+                <li>Access to private resource library</li>
+                <li>2 emergency breakthrough calls</li>
+              </ul>
+              <div class="accord-ideal">
+                <span class="accord-ideal-label">Ideal for:</span>
+                Men ready for serious growth &nbsp;&bull;&nbsp; Couples rebuilding trust &nbsp;&bull;&nbsp; Breaking deep patterns
+              </div>
+              <a href="#booking" class="btn btn--primary accord-btn">Apply Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- âââ Service 3 âââ -->
+        <div class="accord-item" role="listitem">
+          <button class="accord-header" aria-expanded="false">
+            <div class="accord-header-left">
+              <span class="accord-number">03</span>
+              <div>
+                <div class="accord-title">Couples Intensive Retreat</div>
+                <div class="accord-tagline">A weekend that changes everything</div>
+              </div>
+            </div>
+            <div class="accord-header-right">
+              <span class="accord-price">Custom</span>
+              <span class="accord-icon" aria-hidden="true">+</span>
+            </div>
+          </button>
+          <div class="accord-body">
+            <div class="accord-body-inner">
+              <p class="accord-desc">
+                Some breakthroughs can&#39;t wait for weekly sessions. The Couples Intensive is a private, 2-day immersive experience designed to cut through years of misalignment, rebuild deep connection, and give both partners a shared language for growth.
+              </p>
+              <ul class="accord-list">
+                <li>2-day private immersive experience</li>
+                <li>Pre-retreat assessment for both partners</li>
+                <li>8+ hours of guided breakthrough work</li>
+                <li>Custom communication framework</li>
+                <li>90-day post-retreat support plan</li>
+                <li>Available virtually or in-person (Houston, TX)</li>
+              </ul>
+              <div class="accord-ideal">
+                <span class="accord-ideal-label">Ideal for:</span>
+                Couples at a critical turning point &nbsp;&bull;&nbsp; Pre-marital deep work &nbsp;&bull;&nbsp; Reconnection after crisis
+              </div>
+              <a href="#booking" class="btn btn--primary accord-btn">Request Information</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.services-accordion -->
+    </div>
+  </section>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       TESTIMONIALS â M5 FLIP CARDS
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <section id="testimonials" class="testimonials-section section-pad" aria-label="Client Transformations">
+    <div class="container">
+
+      <div class="section-label reveal-fade">Real Results</div>
+      <h2 class="section-title reveal-fade">
+        Before &amp; After<br/>
+        <span class="text-gradient">Real Transformations</span>
+      </h2>
+      <p class="section-subtitle reveal-fade">
+        Hover each card to see the transformation. On mobile, tap to flip.
+      </p>
+
+      <div class="flip-grid">
+
+        <!-- âââ Card 1 âââ -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="Marcus T. transformation">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="flip-tag flip-tag--before">Before</div>
+              <blockquote class="flip-quote">
+                &#8220;I kept attracting the same toxic dynamic over and over. I thought I was the problem &mdash; and I didn&#39;t know how to fix it.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar">M</div>
+                <div>
+                  <div class="flip-name">Marcus T.</div>
+                  <div class="flip-role">Single, 34 &mdash; Houston, TX</div>
+                </div>
+              </div>
+              <div class="flip-hint" aria-hidden="true">Tap to see result &#8594;</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-tag flip-tag--after">After</div>
+              <blockquote class="flip-quote flip-quote--after">
+                &#8220;Dennis helped me understand the wound driving my choices. Six months later I&#39;m in the healthiest relationship of my life &mdash; and I finally feel like myself.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar flip-avatar--after">M</div>
+                <div>
+                  <div class="flip-name" style="color:#fff">Marcus T.</div>
+                  <div class="flip-role" style="color:rgba(255,255,255,.7)">3-Month Transformation Program</div>
+                </div>
+              </div>
+              <div class="flip-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- âââ Card 2 âââ -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="Keisha and David transformation">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="flip-tag flip-tag--before">Before</div>
+              <blockquote class="flip-quote">
+                &#8220;We loved each other but couldn&#39;t communicate without it turning into a war. We were roommates, not partners.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar">K</div>
+                <div>
+                  <div class="flip-name">Keisha &amp; David R.</div>
+                  <div class="flip-role">Married 7 years &mdash; Atlanta, GA</div>
+                </div>
+              </div>
+              <div class="flip-hint" aria-hidden="true">Tap to see result &#8594;</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-tag flip-tag--after">After</div>
+              <blockquote class="flip-quote flip-quote--after">
+                &#8220;The Couples Intensive was a turning point. We now have real intimacy and we actually enjoy each other again. Worth every penny.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar flip-avatar--after">K</div>
+                <div>
+                  <div class="flip-name" style="color:#fff">Keisha &amp; David R.</div>
+                  <div class="flip-role" style="color:rgba(255,255,255,.7)">Couples Intensive Retreat</div>
+                </div>
+              </div>
+              <div class="flip-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- âââ Card 3 âââ -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="James W. transformation">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="flip-tag flip-tag--before">Before</div>
+              <blockquote class="flip-quote">
+                &#8220;I&#39;d been single for 3 years. I was doing everything right on paper, but nothing was working. I was starting to give up.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar">J</div>
+                <div class="flip-role">Single, 41 &mdash; Chicago, IL</div>       <div>
+                  <div class="flip-name">James W.</div>
+                  <div class="flip-role">Single, 41 &mdash; Chicago, IL</div>
+                </div>
+              </div>
+              <div class="flip-hint" aria-hidden="true">Tap to see result &#8594;</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-tag flip-tag--after">After</div>
+              <blockquote class="flip-quote flip-quote--after">
+                &#8220;One session showed me exactly what I was doing wrong and why. I had a date within 2 weeks. I&#39;m engaged now. I&#39;m not kidding.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar flip-avatar--after">J</div>
+                <div>
+                  <div class="flip-name" style="color:#fff">James W.</div>
+                  <div class="flip-role" style="color:rgba(255,255,255,.7)">Single Breakthrough Session</div>
+                </div>
+              </div>
+              <div class="flip-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- âââ Card 4 âââ -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="Alicia M. transformation">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="flip-tag flip-tag--before">Before</div>
+              <blockquote class="flip-quote">
+                &#8220;I kept attracting emotionally unavailable men. I knew the pattern intellectually but couldn&#39;t break it no matter what I tried.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar">A</div>
+                <div>
+                  <div class="flip-name">Alicia M.</div>
+                  <div class="flip-role">Single, 29 &mdash; Dallas, TX</div>
+                </div>
+              </div>
+              <div class="flip-hint" aria-hidden="true">Tap to see result &#8594;</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-tag flip-tag--after">After</div>
+              <blockquote class="flip-quote flip-quote--after">
+                &#8220;Dennis helped me see the root, not just the pattern. The 3-month program completely changed how I value myself. I attract differently because I am different.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar flip-avatar--after">A</div>
+                <div>
+                  <div class="flip-name" style="color:#fff">Alicia M.</div>
+                  <div class="flip-role" style="color:rgba(255,255,255,.7)">3-Month Transformation Program</div>
+                </div>
+              </div>
+              <div class="flip-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- âââ Card 5 âââ -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="Robert and Tamara transformation">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="flip-tag flip-tag--before">Before</div>
+              <blockquote class="flip-quote">
+                &#8220;I was about to walk out of my marriage. 15 years, two kids, and I had completely checked out. I didn&#39;t know if it was worth saving.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar">R</div>
+                <div>
+                  <div class="flip-name">Robert &amp; Tamara S.</div>
+                  <div class="flip-role">Married 15 years &mdash; Miami, FL</div>
+                </div>
+              </div>
+              <div class="flip-hint" aria-hidden="true">Tap to see result &#8594;</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-tag flip-tag--after">After</div>
+              <blockquote class="flip-quote flip-quote--after">
+                &#8220;We came in broken. We left with a plan and &mdash; more importantly &mdash; hope. Two years later we&#39;re stronger than our honeymoon. Dennis saved my family.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar flip-avatar--after">R</div>
+                <div>
+                  <div class="flip-name" style="color:#fff">Robert &amp; Tamara S.</div>
+                  <div class="flip-role" style="color:rgba(255,255,255,.7)">Couples Intensive Retreat</div>
+                </div>
+              </div>
+              <div class="flip-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- âââ Card 6 âââ -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="Dominique B. transformation">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="flip-tag flip-tag--before">Before</div>
+              <blockquote class="flip-quote">
+                &#8220;I was successful in every area of my life except love. I could build a business but couldn&#39;t build a real relationship.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar">D</div>
+                <div>
+                  <div class="flip-name">Dominique B.</div>
+                  <div class="flip-role">Entrepreneur, 37 &mdash; New York, NY</div>
+                </div>
+              </div>
+              <div class="flip-hint" aria-hidden="true">Tap to see result &#8594;</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-tag flip-tag--after">After</div>
+              <blockquote class="flip-quote flip-quote--after">
+                &#8220;Dennis helped me understand I was running business systems in my love life. Completely different rules. The work was deep and it changed everything.&#8221;
+              </blockquote>
+              <div class="flip-client">
+                <div class="flip-avatar flip-avatar--after">D</div>
+                <div>
+                  <div class="flip-name" style="color:#fff">Dominique B.</div>
+                  <div class="flip-role" style="color:rgba(255,255,255,.7)">3-Month Transformation Program</div>
+                </div>
+              </div>
+              <div class="flip-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.flip-grid -->
+    </div>
+  </section>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       BOOKING â M6 TYPEWRITER
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <section id="booking" class="booking-section section-pad" aria-label="Book a Session">
+    <div class="container">
+      <div class="booking-inner">
+
+        <!-- Left: copy + typewriter -->
+        <div class="booking-copy">
+          <div class="section-label reveal-fade" style="color:rgba(255,255,255,.5)">Ready?</div>
+
+          <!-- M6: Typewriter headline -->
+          <h2 class="booking-headline reveal-fade">
+            Stop&nbsp;<span class="tw-wrap"><span id="twDisplay" class="tw-text" aria-live="polite">Guessing.</span><span class="tw-cursor" aria-hidden="true">|</span></span>
+          </h2>
+
+          <p class="booking-sub reveal-fade" style="transition-delay:.3s">
+            You&#39;ve been circling this long enough. One conversation with Dennis can show you exactly what&#39;s blocking real connection &mdash; and exactly how to remove it.
+          </p>
+
+          <div class="booking-urgency reveal-fade" style="transition-delay:.5s">
+            <span class="booking-urgency-dot" aria-hidden="true"></span>
+            Only <strong>3 spots</strong> available this month
+          </div>
+
+          <div class="booking-actions reveal-fade" style="transition-delay:.65s">
+            <a href="https://calendly.com/dennisnickens" target="_blank" rel="noopener" class="btn btn--primary btn--xl">
+              Book My Session Now <span class="btn-arrow">&#8594;</span>
+            </a>
+            <a href="mailto:dennis@dennisnickens.com" class="btn btn--ghost">
+              Ask a Question First
+            </a>
+          </div>
+
+          <div class="booking-guarantees reveal-fade" style="transition-delay:.8s">
+            <div class="guarantee-item">
+              <span class="guarantee-icon">&#10003;</span>
+              No long-term commitment required
+            </div>
+            <div class="guarantee-item">
+              <span class="guarantee-icon">&#10003;</span>
+              100% confidential
+            </div>
+            <div class="guarantee-item">
+              <span class="guarantee-icon">&#10003;</span>
+              Results-focused, not talk-focused
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: value card -->
+        <div class="booking-card reveal-fade" style="transition-delay:.4s">
+          <div class="booking-card-header">
+            <div class="booking-card-label">Your First Step</div>
+            <div class="booking-card-title">Breakthrough Session</div>
+            <div class="booking-card-price">
+              <span class="price-amount">$197</span>
+              <span class="price-period">/ 90 min</span>
+            </div>
+          </div>
+          <div class="booking-card-body">
+            <ul class="booking-card-list">
+              <li><span class="check-icon" aria-hidden="true">&#10022;</span>90-minute 1-on-1 deep dive</li>
+              <li><span class="check-icon" aria-hidden="true">&#10022;</span>Root-cause pattern analysis</li>
+              <li><span class="check-icon" aria-hidden="true">&#10022;</span>Custom action framework</li>
+              <li><span class="check-icon" aria-hidden="true">&#10022;</span>24-hr follow-up voice memo</li>
+              <li><span class="check-icon" aria-hidden="true">&#10022;</span>Session recording included</li>
+            </ul>
+            <a href="https://calendly.com/dennisnickens" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+              Reserve Your Spot
+            </a>
+            <p class="booking-card-note">Secure checkout &bull; Instant confirmation</p>
+          </div>
+        </div>
+
+      </div><!-- /.booking-inner -->
+    </div>
+  </section>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       FOOTER
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="sr-logo.png" alt="SR Logo" class="footer-logo-img" width="64" height="64">
+            <span class="nav-logo-text">
+              <span class="nav-logo-name">Dennis Nickens</span>
+              <span class="nav-logo-subtitle">AKA SPIRITUAL ROMEO</span>
+            </span>
+          </div>
+          <p class="footer-tagline">
+            Real relationships. Real results.<br/>
+            No guesswork. No games.
+          </p>
+          <div class="footer-social" aria-label="Social links">
+            <a href="https://instagram.com/dennisnickens" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://youtube.com/@dennisnickens" target="_blank" rel="noopener" aria-label="YouTube" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96C23 15.86 23 12 23 12s0-3.86-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://tiktok.com/@dennisnickens" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.74a4.85 4.85 0 01-1-.05z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4 class="footer-heading">Work With Me</h4>
+          <ul>
+            <li><a href="#services">Breakthrough Session</a></li>
+            <li><a href="#services">Transformation Program</a></li>
+            <li><a href="#services">Couples Retreat</a></li>
+            <li><a href="#booking">Book Now</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4 class="footer-heading">Connect</h4>
+          <ul>
+            <li><a href="#story">My Story</a></li>
+            <li><a href="#testimonials">Client Results</a></li>
+            <li><a href="mailto:dennis@dennisnickens.com">Email Dennis</a></li>
+            <li><a href="https://dennisnickens.com/blog" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Weekly Wisdom</h4>
+          <p class="footer-newsletter-sub">
+            Relationship insights delivered to your inbox every Sunday.
+          </p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)" novalidate>
+            <input type="email" class="newsletter-input" placeholder="your@email.com" aria-label="Email address" required />
+            <button type="submit" class="btn btn--primary newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+
+      </div><!-- /.footer-grid -->
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="footerYear"></span> Dennis Nickens &bull; Spiritual Romeo. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       SCRIPTS â load order matters
+  âââââââââââââââââââââââââââââââââââââââââââ -->
+
+  <!-- 1. Hero canvas engine (sets window.SR_HERO_READY) -->
+  <script src="hero-animation.js" defer></script>
+
+  <!-- 2. Core site JS (skips canvas init when SR_HERO_READY) -->
+  <script src="style.js" defer></script>
+
+  <!-- 3. Module JS (all 6 interactive modules) -->
+  <script src="modules.js" defer></script>
+
+  <!-- 4. Inline utilities -->
+  <script>
+    // Footer year
+    document.addEventListener('DOMContentLoaded', function () {
+      var el = document.getElementById('footerYear');
+      if (el) el.textContent = new Date().getFullYear();
+    });
+
+    // Register GSAP plugin after load
+    window.addEventListener('load', function () {
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+      }
+    });
+
+    // Newsletter micro-interaction
+    function handleNewsletter(e) {
+      e.preventDefault();
+      var input = e.target.querySelector('input[type="email"]');
+      var btn   = e.target.querySelector('button');
+      if (!input || !input.value) return;
+      btn.textContent = '&#10003; You\'re in!';
+      btn.style.background = 'linear-gradient(90deg,#22C55E,#16A34A)';
+      input.value = '';
+      input.placeholder = 'See you Sunday!';
+      setTimeout(function () {
+        btn.textContent = 'Subscribe';
+        btn.style.background = '';
+        input.placeholder = 'your@email.com';
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
